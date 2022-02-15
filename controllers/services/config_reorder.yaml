@@ -1,0 +1,17 @@
+# ===================================
+#  Service Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: philippkuhn.servicemanager::lang.menu_label.services
+
+# Attribute name
+nameFrom: name
+
+# Model class
+modelClass: PhilippKuhn\ServiceManager\Models\Service
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: reorder_toolbar

@@ -1,0 +1,31 @@
+# ===================================
+#  Category Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    active:
+
+        # Filter name
+        label: philippkuhn.servicemanager::lang.category.filter_active
+
+        # Filter type
+        type: switch
+
+        # SQL conditions
+        conditions:
+            - is_active <> '1'
+            - is_active = '1'
+
+    published:
+
+        #Filter name
+        label: philippkuhn.servicemanager::lang.category.filter_published
+
+        # Filter type
+        type: switch
+
+        # SQL conditions
+        conditions:
+            - published_at > NOW()
+            - published_at IS NULL OR published_at <= NOW()

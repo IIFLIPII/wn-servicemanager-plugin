@@ -1,0 +1,17 @@
+# ===================================
+#  Category Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: philippkuhn.servicemanager::lang.menu_label.categories
+
+# Attribute name
+nameFrom: name
+
+# Model class
+modelClass: PhilippKuhn\ServiceManager\Models\Category
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: reorder_toolbar

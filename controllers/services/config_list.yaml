@@ -1,0 +1,44 @@
+# ===================================
+#  Service List Behavior Config
+# ===================================
+
+# Model list column configuration file
+list: ~/plugins/philippkuhn/servicemanager/models/service/columns.yaml
+
+# Model class
+modelClass: PhilippKuhn\ServiceManager\Models\Service
+
+# List title
+title: philippkuhn.servicemanager::lang.menu_label.services
+
+# URL for each record
+recordUrl: philippkuhn/servicemanager/services/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 20
+
+# Displays the list column setup button
+showSetup: true
+
+# Displays the sorting link on each column
+showSorting: true
+
+# Default sorting column and behaviour
+defaultSort:
+    column: sort_order
+    direction: asc
+
+# Display checkboxes next to each record
+showCheckboxes: true
+
+# Toolbar widget configuration
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: backend::lang.list.search_prompt
+
+# Filter widget configuration
+filter: config_filter.yaml

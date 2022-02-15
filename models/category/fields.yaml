@@ -1,0 +1,72 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+
+    defaultTab: philippkuhn.servicemanager::lang.category.tab_general
+
+    fields:
+
+        # General tab
+        name:
+            label: philippkuhn.servicemanager::lang.category.field_name
+            placeholder: philippkuhn.servicemanager::lang.category.placeholder_name
+            span: auto
+            required: 1
+            type: text
+
+        description:
+            label: philippkuhn.servicemanager::lang.category.field_description
+            placeholder: philippkuhn.servicemanager::lang.category.placeholder_description
+            type: textarea
+            span: auto
+
+        slug:
+            label: philippkuhn.servicemanager::lang.category.field_slug
+            comment: philippkuhn.servicemanager::lang.category.comment_slug
+            span: left
+            placeholder: philippkuhn.servicemanager::lang.category.placeholder_slug
+            required: 1
+            preset:
+                field: name
+                type: slug
+
+        banner:
+            label: philippkuhn.servicemanager::lang.category.field_banner
+            comment: philippkuhn.servicemanager::lang.category.comment_banner
+            mode: image
+            imageWidth: 120
+            imageHeight: 120
+            fileTypes: jpg,png,webp
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: left
+            type: fileupload
+
+        # Services tab
+        services:
+            label: philippkuhn.servicemanager::lang.category.field_services
+            nameFrom: name
+            descriptionFrom: description
+            order: sort_order desc
+            type: relation
+            tab: philippkuhn.servicemanager::lang.category.tab_services
+
+        # Visibility tab
+        is_active:
+            label: philippkuhn.servicemanager::lang.category.field_is_active
+            type: switch
+            tab: philippkuhn.servicemanager::lang.category.tab_visibility
+
+        published_at:
+            label: philippkuhn.servicemanager::lang.category.field_published_at
+            type: datepicker
+            tab: philippkuhn.servicemanager::lang.category.tab_visibility
+            span: left
+            trigger:
+                action: enable
+                field: is_active
+                condition: checked

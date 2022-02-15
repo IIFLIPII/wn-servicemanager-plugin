@@ -1,0 +1,85 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+
+    defaultTab: philippkuhn.servicemanager::lang.service.tab_general
+
+    fields:
+
+        # General tab
+        name:
+            label: philippkuhn.servicemanager::lang.service.field_name
+            placeholder: philippkuhn.servicemanager::lang.service.placeholder_name
+            span: auto
+            required: 1
+            type: text
+
+        description:
+            label: philippkuhn.servicemanager::lang.service.field_description
+            placeholder: philippkuhn.servicemanager::lang.service.placeholder_description
+            type: textarea
+            span: auto
+
+        price:
+            label: philippkuhn.servicemanager::lang.service.field_price
+            placeholder: philippkuhn.servicemanager::lang.service.placeholder_price
+            type: number
+            required: 1
+            span: auto
+
+        time:
+            label: philippkuhn.servicemanager::lang.service.field_time
+            placeholder: philippkuhn.servicemanager::lang.service.placeholder_time
+            type: number
+            required: 1
+            span: left
+
+        # Category tab
+        category:
+            label: philippkuhn.servicemanager::lang.service.field_category
+            nameFrom: name
+            descriptionFrom: description
+            order: sort_order desc
+            emptyOption: philippkuhn.servicemanager::lang.service.option_no_category
+            type: relation
+            tab: philippkuhn.servicemanager::lang.service.tab_category
+
+        # Visibility tab
+        is_active:
+            label: philippkuhn.servicemanager::lang.service.field_is_active
+            type: switch
+            tab: philippkuhn.servicemanager::lang.service.tab_visibility
+            span: auto
+
+        published_at:
+            label: philippkuhn.servicemanager::lang.service.field_published_at
+            type: datepicker
+            tab: philippkuhn.servicemanager::lang.service.tab_visibility
+            span: left
+            trigger:
+                action: enable
+                field: is_active
+                condition: checked
+
+        attributes_section:
+            label: philippkuhn.servicemanager::lang.service.tab_attributes
+            type: section
+            comment: philippkuhn.servicemanager::lang.service.comment_attributes
+            span: full
+            tab: philippkuhn.servicemanager::lang.service.tab_visibility
+
+        is_special:
+            label: philippkuhn.servicemanager::lang.service.field_is_special
+            comment: philippkuhn.servicemanager::lang.service.comment_is_special
+            type: switch
+            span: auto
+            tab: philippkuhn.servicemanager::lang.service.tab_visibility
+
+        is_highlight:
+            label: philippkuhn.servicemanager::lang.service.field_is_highlight
+            comment: philippkuhn.servicemanager::lang.service.comment_is_highlight
+            type: switch
+            span: auto
+            tab: philippkuhn.servicemanager::lang.service.tab_visibility

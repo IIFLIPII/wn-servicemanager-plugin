@@ -1,0 +1,8 @@
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <li><a href="<?= Backend::url('philippkuhn/servicemanager/services') ?>"><?= e(trans('philippkuhn.servicemanager::lang.navigation.services')) ?></a></li>
+    <li><?= e($this->pageTitle) ?></li>
+</ul>
+<?php Block::endPut() ?>
+
+<?= $this->reorderRender() ?>

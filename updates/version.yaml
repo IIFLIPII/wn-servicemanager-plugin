@@ -1,0 +1,15 @@
+1.0.0:
+    - Initial release
+    - v1.0.0/table_create_categories.php
+    - v1.0.0/table_create_services.php
+1.0.1:
+    - Allow uncategorized services
+    - v1.0.1/table_update_services.php
+1.0.2:
+    - Add slug functionality to categories
+    - v1.0.2/table_update_categories.php
+1.0.3:
+    - Add highlight option to services
+    - v1.0.3/table_update_services.php
+1.0.4:
+    - Add permission for editing entries

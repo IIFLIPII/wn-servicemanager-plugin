@@ -1,0 +1,48 @@
+# ===================================
+#  Category Form Behavior Config
+# ===================================
+
+# Form name
+name: philippkuhn.servicemanager::lang.navigation.categories
+
+# Model form fields configuration file
+form: ~/plugins/philippkuhn/servicemanager/models/category/fields.yaml
+
+# Model class
+modelClass: PhilippKuhn\ServiceManager\Models\Category
+
+# Fallback redirect URL
+defaultRedirect: philippkuhn/servicemanager/categories
+
+# Create form config
+create:
+
+    # Form name
+    title: philippkuhn.servicemanager::lang.navigation.create_category
+
+    # Redirect URL on save
+    redirect: philippkuhn/servicemanager/categories/update/:id
+
+    # Redirect URL on close
+    redirectClose: philippkuhn/servicemanager/categories
+
+    # Message displayed on successful save
+    flashSave: philippkuhn.servicemanager::lang.flash.created_category
+
+# Update form config
+update:
+
+    # Form name
+    title: philippkuhn.servicemanager::lang.navigation.edit_category
+
+    # Redirect URL on save
+    redirect: philippkuhn/servicemanager/categories
+
+    # Redirect URL on close
+    redirectClose: philippkuhn/servicemanager/categories
+
+    # Message displayed on successful save
+    flashSave: philippkuhn.servicemanager::lang.flash.saved_category
+
+    # Message displayed on successful delete
+    flashDelete: philippkuhn.servicemanager::lang.flash.deleted_category

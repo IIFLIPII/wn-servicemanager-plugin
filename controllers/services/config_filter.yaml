@@ -1,0 +1,45 @@
+# ===================================
+#  Service Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    category:
+
+        # Filter name
+        label: philippkuhn.servicemanager::lang.service.filter_category
+
+        # Model class
+        modelClass: PhilippKuhn\ServiceManager\Models\Category
+
+        # Model attribute to display for the name
+        nameFrom: name
+
+        # SQL condition
+        condition: category_id in (:filtered)
+
+    active:
+
+        # Filter name
+        label: philippkuhn.servicemanager::lang.service.filter_active
+
+        # Filter type
+        type: switch
+
+        # SQL conditions
+        conditions:
+            - is_active <> '1'
+            - is_active = '1'
+
+    published:
+
+        #Filter name
+        label: philippkuhn.servicemanager::lang.service.filter_published
+
+        # Filter type
+        type: switch
+
+        # SQL conditions
+        conditions:
+            - published_at > NOW()
+            - published_at IS NULL OR published_at <= NOW()

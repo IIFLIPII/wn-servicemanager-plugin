@@ -1,0 +1,48 @@
+# ===================================
+#  Service Form Behavior Config
+# ===================================
+
+# Form name
+name: philippkuhn.servicemanager::lang.navigation.services
+
+# Model form fields configuration file
+form: ~/plugins/philippkuhn/servicemanager/models/service/fields.yaml
+
+# Model class
+modelClass: PhilippKuhn\ServiceManager\Models\Service
+
+# Fallback redirect URL
+defaultRedirect: philippkuhn/servicemanager/services
+
+# Create form config
+create:
+
+    # Form name
+    title: philippkuhn.servicemanager::lang.navigation.create_service
+
+    # Redirect URL on save
+    redirect: philippkuhn/servicemanager/services/update/:id
+
+    # Redirect URL on close
+    redirectClose: philippkuhn/servicemanager/services
+
+    # Message displayed on successful save
+    flashSave: philippkuhn.servicemanager::lang.flash.created_service
+
+# Update form config
+update:
+
+    # Form name
+    title: philippkuhn.servicemanager::lang.navigation.edit_service
+
+    # Redirect URL on save
+    redirect: philippkuhn/servicemanager/services
+
+    # Redirect URL on close
+    redirectClose: philippkuhn/servicemanager/services
+
+    # Message displayed on successful save
+    flashSave: philippkuhn.servicemanager::lang.flash.saved_service
+
+    # Message displayed on successful delete
+    flashDelete: philippkuhn.servicemanager::lang.flash.deleted_service
