@@ -93,6 +93,13 @@ return [
             'property_page' => 'Category page',
             'property_page_description' => 'Page for displaying a category.'
         ],
+        'category' => [
+            'name' => 'Category',
+            'description' => 'Data of one category',
+
+            'property_slug' => 'Slug parameter name',
+            'property_slug_description' => 'The URL-parameter used to determine the category.'
+        ],
         'services' => [
             'name' => 'Services',
             'description' => 'List of services',
@@ -104,5 +111,11 @@ return [
             'property_special' => 'Show only specials',
             'property_special_description' => 'When selected, only services declared as "specials" will be returned.'
         ]
+    ],
+    'menu_item' => [
+        'service-categories' => 'Service Manager Categories'
+    ],
+    'permissions' => [
+        'edit' => 'Edit categories & services'
     ]
 ];

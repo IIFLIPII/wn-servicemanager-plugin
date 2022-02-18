@@ -13,3 +13,9 @@
     - v1.0.3/table_update_services.php
 1.0.4:
     - Add permission for editing entries
+1.0.5:
+    - Add model validation
+    - Add RainLab.Pages menu type
+    - Add plugin constants
+    - Add Category component
+    - Clean up code & translations

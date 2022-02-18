@@ -9,14 +9,21 @@ use PhilippKuhn\ServiceManager\Plugin;
 use Winter\Storm\Database\Model;
 use Winter\Storm\Database\Traits\SoftDelete;
 use Winter\Storm\Database\Traits\Sortable;
+use Winter\Storm\Database\Traits\Validation;
 use Winter\Storm\Exception\ApplicationException;
 
 class Service extends Model
 {
     use Sortable;
     use SoftDelete;
+    use Validation;
 
-    public const TABLE_NAME = Plugin::TABLE_NAME_PREFIX . 'services';
+    public const TABLE_NAME = Plugin::TABLE_NAME_PREFIX . '_services';
+
+    /**
+     * @var string
+     */
+    protected $table = self::TABLE_NAME;
 
     /**
      * @var string[]
@@ -28,22 +35,24 @@ class Service extends Model
         'deleted_at'
     ];
 
-    /**
-     * @var string
-     */
-    protected $table = self::TABLE_NAME;
+    public array $rules = [
+        'name' => 'required',
+        'slug' => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:' . self::TABLE_NAME],
+        'price' => 'required',
+        'time' => 'required'
+    ];
 
     /**
      * @var string[]
      */
     public $belongsTo = [
-        'category' => 'PhilippKuhn\ServiceManager\Models\Category'
+        'category' => Category::class
     ];
 
     /**
      * @throws ApplicationException
      */
-    public function beforeSave()
+    public function beforeSave(): void
     {
         $this->checkUser();
     }
@@ -51,7 +60,7 @@ class Service extends Model
     /**
      * @throws ApplicationException
      */
-    public function beforeDelete()
+    public function beforeDelete(): void
     {
         $this->checkUser();
     }
@@ -59,12 +68,12 @@ class Service extends Model
     /**
      * @throws ApplicationException
      */
-    private function checkUser()
+    private function checkUser(): void
     {
         $user = BackendAuth::getUser();
 
-        if (!$user->hasAccess('philippkuhn.servicemanager.edit')) {
-            throw new ApplicationException(Lang::get('philippkuhn.servicemanager::lang.error.permission_denied'));
+        if (!$user->hasAccess(Plugin::PLUGIN_KEY . '.edit')) {
+            throw new ApplicationException(Lang::get(Plugin::TRANSLATION_KEY . '.error.permission_denied'));
         }
     }
 }

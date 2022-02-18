@@ -11,15 +11,11 @@ use Winter\Storm\Database\Model;
 
 class Services extends ComponentBase
 {
-    /**
-     * @var Category|null
-     */
-    private $category;
+    public const COMPONENT_KEY = 'serviceManagerServices';
 
-    /**
-     * @var Collection
-     */
-    public $services;
+    private ?Category $category;
+
+    public Collection $services;
 
 
     /**
@@ -28,8 +24,8 @@ class Services extends ComponentBase
     public function componentDetails(): array
     {
         return [
-            'name'        => Plugin::TRANSLATION_KEY . 'component.services.name',
-            'description' => Plugin::TRANSLATION_KEY . 'component.services.description'
+            'name'        => Plugin::TRANSLATION_KEY . '.component.services.name',
+            'description' => Plugin::TRANSLATION_KEY . '.component.services.description'
         ];
     }
 
@@ -40,27 +36,30 @@ class Services extends ComponentBase
     {
         return [
             'category' => [
-                'title'       => Plugin::TRANSLATION_KEY . 'component.services.property_category',
-                'description' => Plugin::TRANSLATION_KEY . 'component.services.property_category_description',
+                'title'       => Plugin::TRANSLATION_KEY . '.component.services.property_category',
+                'description' => Plugin::TRANSLATION_KEY . '.component.services.property_category_description',
                 'type'        => 'string',
                 'default'     => '{{ :slug }}'
             ],
             'displayInactive' => [
-                'title'       => Plugin::TRANSLATION_KEY . 'component.services.property_inactive',
-                'description' => Plugin::TRANSLATION_KEY . 'component.services.property_inactive_description',
+                'title'       => Plugin::TRANSLATION_KEY . '.component.services.property_inactive',
+                'description' => Plugin::TRANSLATION_KEY . '.component.services.property_inactive_description',
                 'type'        => 'checkbox',
                 'default'     => 0
             ],
             'displaySpecial' => [
-                'title'       => Plugin::TRANSLATION_KEY . 'component.services.property_special',
-                'description' => Plugin::TRANSLATION_KEY . 'component.services.property_special_description',
+                'title'       => Plugin::TRANSLATION_KEY . '.component.services.property_special',
+                'description' => Plugin::TRANSLATION_KEY . '.component.services.property_special_description',
                 'type'        => 'checkbox',
                 'default'     => 0
             ],
         ];
     }
 
-    public function onRun ()
+    /**
+     * @return void
+     */
+    public function onRun (): void
     {
         $this->category = $this->loadCategory();
         $this->services = $this->loadServices();
@@ -90,10 +89,10 @@ class Services extends ComponentBase
             : Service::orderBy('sort_order', 'asc');
 
         if (!$this->property('displayInactive')) {
-            $services = $services->where('is_active', 1);
+            $services = $services->where('is_active', true);
         }
         if ($this->property('displaySpecial')) {
-            $services = $services->where('is_special', 1);
+            $services = $services->where('is_special', true);
         }
         return $services->get();
     }

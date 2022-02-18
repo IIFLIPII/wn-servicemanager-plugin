@@ -93,6 +93,13 @@ return [
             'property_page' => 'Kategorie-Seite',
             'property_page_description' => 'Seite auf die die einzelnen Kategorien zeigen.'
         ],
+        'category' => [
+            'name' => 'Kategorie',
+            'description' => 'Datein einer Kategorie',
+
+            'property_slug' => 'Slug Parametername',
+            'property_slug_description' => 'Der URL-Parameter welcher verwendet wird um die Kategorie zu bestimmen.'
+        ],
         'services' => [
             'name' => 'Services',
             'description' => 'Liste aller Services',
@@ -104,5 +111,11 @@ return [
             'property_special' => 'Nur Specials anzeigen',
             'property_special_description' => 'Ist diese Option gewählt, werden nur Services zurückgegeben welche als "Special" deklariert sind.'
         ]
+    ],
+    'menu_item' => [
+        'service-categories' => 'Service Manager Kategorien'
+    ],
+    'permissions' => [
+        'edit' => 'Kategorien & Services bearbeiten'
     ]
 ];

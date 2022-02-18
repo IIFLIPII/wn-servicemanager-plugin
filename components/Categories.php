@@ -10,10 +10,9 @@ use Winter\Storm\Database\Collection;
 
 class Categories extends ComponentBase
 {
-    /**
-     * @var Collection
-     */
-    public $categories;
+    public const COMPONENT_KEY = 'serviceManagerCategories';
+
+    public Collection $categories;
 
 
     /**
@@ -22,8 +21,8 @@ class Categories extends ComponentBase
     public function componentDetails(): array
     {
         return [
-            'name'        => Plugin::TRANSLATION_KEY . 'component.categories.name',
-            'description' => Plugin::TRANSLATION_KEY . 'component.categories.description'
+            'name'        => Plugin::TRANSLATION_KEY . '.component.categories.name',
+            'description' => Plugin::TRANSLATION_KEY . '.component.categories.description'
         ];
     }
 
@@ -34,16 +33,16 @@ class Categories extends ComponentBase
     {
         return [
             'displayInactive' => [
-                'title'       => Plugin::TRANSLATION_KEY . 'component.categories.property_inactive',
-                'description' => Plugin::TRANSLATION_KEY . 'component.categories.property_inactive_description',
+                'title'       => Plugin::TRANSLATION_KEY . '.component.categories.property_inactive',
+                'description' => Plugin::TRANSLATION_KEY . '.component.categories.property_inactive_description',
                 'type'        => 'checkbox',
                 'default'     => 0
             ],
             'categoryPage' => [
-                'title'       => Plugin::TRANSLATION_KEY . 'component.categories.property_page',
-                'description' => Plugin::TRANSLATION_KEY . 'component.categories.property_page_description',
+                'title'       => Plugin::TRANSLATION_KEY . '.component.categories.property_page',
+                'description' => Plugin::TRANSLATION_KEY . '.component.categories.property_page_description',
                 'type'        => 'dropdown',
-                'group'       => Plugin::TRANSLATION_KEY . 'component.categories.group_links',
+                'group'       => Plugin::TRANSLATION_KEY . '.component.categories.group_links',
             ]
         ];
     }
@@ -56,7 +55,10 @@ class Categories extends ComponentBase
         return Page::getNameList();
     }
 
-    public function onRun ()
+    /**
+     * @return void
+     */
+    public function onRun (): void
     {
         $this->categories = $this->loadCategories();
     }
@@ -68,7 +70,7 @@ class Categories extends ComponentBase
     {
         $categories = Category::orderBy('sort_order', 'asc');
         if (!$this->property('displayInactive')) {
-            $categories = $categories->where('is_active', 1);
+            $categories = $categories->where('is_active', true);
         }
         $categories = $categories->get();
 

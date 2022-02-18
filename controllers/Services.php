@@ -17,20 +17,11 @@ class Services extends Controller
         'Backend.Behaviors.FormController'
     ];
 
-    /**
-     * @var string
-     */
-    public $listConfig = 'config_list.yaml';
+    public string $listConfig = 'config_list.yaml';
 
-    /**
-     * @var string
-     */
-    public $reorderConfig = 'config_reorder.yaml';
+    public string $reorderConfig = 'config_reorder.yaml';
 
-    /**
-     * @var string
-     */
-    public $formConfig = 'config_form.yaml';
+    public string $formConfig = 'config_form.yaml';
 
     public function __construct()
     {
