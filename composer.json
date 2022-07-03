@@ -1,4 +1,10 @@
 {
     "name": "iiflipii/winter-plugins-servicemanager",
-    "type": "library"
+    "type": "winter-plugin",
+    "authors": [
+        {
+            "name": "Philipp Kuhn",
+            "email": "philipp.kuhn.dev@gmail.com",
+        }
+    ],
 }
