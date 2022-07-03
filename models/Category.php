@@ -181,7 +181,8 @@ class Category extends Model
                 'title' => $category->name,
                 'url' => self::getCategoryPageUrl($item->cmsPage, $category, $theme)
             ];
-            $categoryItem['isActive'] = $category->url === $url;
+
+            $categoryItem['isActive'] = $categoryItem['url'] === $url;
             $result['items'][] = $categoryItem;
         }
 
@@ -190,11 +191,11 @@ class Category extends Model
 
     /**
      * @param string $pageName
-     * @param CategoryComponent $category
+     * @param Category $category
      * @param Theme $theme
      * @return string
      */
-    protected static function getCategoryPageUrl (string $pageName, CategoryComponent $category, Theme $theme): string
+    protected static function getCategoryPageUrl (string $pageName, Category $category, Theme $theme): string
     {
         $page = CmsPage::loadCached($theme, $pageName);
         return CmsPage::url($page->getBaseFileName(), ['slug' => $category->slug]);

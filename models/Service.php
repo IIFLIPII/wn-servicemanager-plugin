@@ -37,7 +37,6 @@ class Service extends Model
 
     public array $rules = [
         'name' => 'required',
-        'slug' => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:' . self::TABLE_NAME],
         'price' => 'required',
         'time' => 'required'
     ];
