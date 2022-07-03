@@ -1,10 +1,13 @@
 {
-    "name": "iiflipii/winter-plugins-servicemanager",
+    "name": "philippkuhn/winter-plugins-servicemanager",
     "type": "winter-plugin",
     "authors": [
         {
             "name": "Philipp Kuhn",
             "email": "philipp.kuhn.dev@gmail.com"
         }
-    ]
+    ],
+    "extra": {
+        "installer-name": "servicemanager"
+    }
 }
